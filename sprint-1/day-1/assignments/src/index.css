@@ -1,0 +1,64 @@
+#container{
+    display: flex;
+    justify-content: center;
+}
+#heading{
+    color: goldenrod;
+    font-size:30px;
+    font-weight:bold;
+    margin-top: 3%;
+    margin-left: 1%;
+}
+
+
+#takeinput{
+    display: flex;
+    justify-content: center;
+}
+/* label{
+    font-size: 25px;
+    font-weight: bold;
+    color: tomato;
+    margin-left:5%;
+    margin-top:1%;
+} */
+input{
+    width: 20%;
+    height:40px;
+    font-size:17px;
+    color: teal;
+    font-weight:bold;
+    margin-left:5%;
+}
+button{
+    background-color:white;
+    border: none;
+    width: 10%;
+    font-size:20px;
+    font-weight:bold;
+    color: tomato;
+}
+button:hover{
+    transition:.7s;
+    padding: 10px;
+    background-color:black;
+    color:white;   
+    cursor: pointer;
+}
+#main{
+    color: black;
+    font-weight: bold;
+    margin-top:2%;
+    font-size: 20px;
+}
+.number{
+    color: teal;
+}
+.note{
+    margin-left: 5%;
+    color: goldenrod;
+}
+.eachrow{
+    display: flex;
+    justify-content: center;
+}
