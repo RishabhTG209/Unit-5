@@ -3,9 +3,13 @@ import axios from 'axios'
 
 export const Forms =()=>{
     const [formData, setFormData] = useState({
-        username :"",
+        name :"",
         age:"",
-        email:"",
+        address:"",
+        department:"",
+        salary:"",
+        married:"",
+        single:"",
     });
 
     const handleChange =(e)=>{
@@ -21,12 +25,16 @@ export const Forms =()=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(formData)
-        axios.post("http://localhost:3125/users",formData).then(()=>{
-            alert("user Successfully registered");
+        axios.post("http://localhost:3125/employee",formData).then(()=>{
+            alert("Employee Successfully registered");
             setFormData({
-                username :"",
+                name :"",
                 age:"",
-                email:"",
+                address:"",
+                department:"",
+                salary:"",
+                married:"",
+                single:"",
             });
         });
     };
@@ -35,11 +43,11 @@ export const Forms =()=>{
         <form onSubmit={handleSubmit}>
             <h3>Signup</h3>
             <input  
-                id="username" 
+                id="name" 
                 type="text" 
-                value={formData.username}
+                value={formData.name}
                 onChange={handleChange} 
-                placeholder="Enter Username">
+                placeholder="Enter Name">
             </input>
             <input 
                 id="age"
@@ -49,12 +57,45 @@ export const Forms =()=>{
                 placeholder="Enter Age">
             </input>
             <input 
-                id="email"
+                id="address"
                 type="text" 
-                value={formData.email}
+                value={formData.address}
                 onChange={handleChange} 
-                placeholder="Enter Email">
+                placeholder="Enter Address">
             </input>
+            <select 
+                id="department"
+                type="text"
+                onChange={handleChange}> 
+                <option>-----</option>
+                <option value={formData.department}>Finance</option>
+                <option value={formData.department}>Management</option>
+                <option value={formData.department}>Technical</option>
+                <option value={formData.department}>HR</option>
+            </select>
+            <input 
+                id="salary"
+                type="number" 
+                value={formData.salary}
+                onChange={handleChange} 
+                placeholder="Enter Salary">
+            </input>
+
+            <input 
+                id="martial_status"
+                type="checkbox" 
+                value={formData.married}
+                onChange={handleChange}>
+            </input>
+            <label>Married</label>
+
+            <input 
+                id="martial_status"
+                type="checkbox"
+                value={formData.single}
+                onChange={handleChange}>
+            </input>
+            <label>Single</label>
 
             <input type="submit" value="Submit data"></input>
         </form>
