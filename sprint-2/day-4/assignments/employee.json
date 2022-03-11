@@ -35,6 +35,15 @@
       "salary": "500000",
       "status": "single",
       "id": 4
+    },
+    {
+      "name": "abc",
+      "age": "25",
+      "address": "wz 1598 G/1 Nangal Raya",
+      "department": "Technical",
+      "salary": "500000",
+      "status": "single",
+      "id": 5
     }
   ]
 }
