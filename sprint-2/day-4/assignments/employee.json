@@ -35,15 +35,6 @@
       "salary": "500000",
       "status": "single",
       "id": 4
-    },
-    {
-      "name": "Tishya",
-      "age": "24",
-      "address": "Gurgaon",
-      "department": "HR",
-      "salary": "1000000",
-      "status": "single",
-      "id": 5
     }
   ]
 }
