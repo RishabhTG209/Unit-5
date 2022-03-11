@@ -16,7 +16,7 @@ function GroceryInput({addto}) {
         <br />
         <button onClick={()=>{
             addto(text)
-        }}>Submit</button>
+        }}>Add Item</button>
       </div>
     );
   }

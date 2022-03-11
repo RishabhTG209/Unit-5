@@ -1,11 +1,14 @@
-function GroceryList({value}) {
+function GroceryList({value,deleteItem}) {
 
   // console.log({value})
 
     return (
       <div className="box">
-        <div>{value}</div>
-        <button className="size">Delete</button>
+        <div>{value.title}</div>
+        <button className="size"
+        onClick={()=>{
+          deleteItem(value.id)
+        }}>Delete</button>
       </div>
     );
   }
