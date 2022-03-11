@@ -1,5 +1,6 @@
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import axios from 'axios'
+import './employee.css';
 
 export const Forms =()=>{
     const [formData, setFormData] = useState({
@@ -8,9 +9,20 @@ export const Forms =()=>{
         address:"",
         department:"",
         salary:"",
-        married:"",
-        single:"",
+        status:"",
     });
+
+    const [data,setData] = useState([])
+
+    useEffect(()=>{
+        getData();
+    },[])
+
+    const getData =()=>{
+        axios.get(`http://localhost:3125/employee`).then(res=>{
+            setData(res.data);
+        })
+    }
 
     const handleChange =(e)=>{
         // console.log(e.target)
@@ -22,6 +34,18 @@ export const Forms =()=>{
             [id]:value,
         })
     }
+
+    const handleCheckbox = (e)=>{
+        const {id,value} =e.target;
+        const checked = e.target.checked;
+        if(checked){
+            setFormData({
+                ...formData,
+                [id]:value,
+            })
+        }
+    }
+
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(formData)
@@ -33,71 +57,93 @@ export const Forms =()=>{
                 address:"",
                 department:"",
                 salary:"",
-                married:"",
-                single:"",
+                status:"",
             });
+        }).then(res=>{
+            getData();
         });
     };
     
     return(
-        <form onSubmit={handleSubmit}>
-            <h3>Signup</h3>
-            <input  
-                id="name" 
-                type="text" 
-                value={formData.name}
-                onChange={handleChange} 
-                placeholder="Enter Name">
-            </input>
-            <input 
-                id="age"
-                type="number" 
-                value={formData.age}
-                onChange={handleChange} 
-                placeholder="Enter Age">
-            </input>
-            <input 
-                id="address"
-                type="text" 
-                value={formData.address}
-                onChange={handleChange} 
-                placeholder="Enter Address">
-            </input>
-            <select 
-                id="department"
-                type="text"
-                onChange={handleChange}> 
-                <option>-----</option>
-                <option value={formData.department}>Finance</option>
-                <option value={formData.department}>Management</option>
-                <option value={formData.department}>Technical</option>
-                <option value={formData.department}>HR</option>
-            </select>
-            <input 
-                id="salary"
-                type="number" 
-                value={formData.salary}
-                onChange={handleChange} 
-                placeholder="Enter Salary">
-            </input>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <h3>Signup</h3>
+                <input  
+                    id="name" 
+                    type="text" 
+                    value={formData.name}
+                    onChange={handleChange} 
+                    placeholder="Enter Name">
+                </input>
+                <input 
+                    id="age"
+                    type="number" 
+                    value={formData.age}
+                    onChange={handleChange} 
+                    placeholder="Enter Age">
+                </input>
+                <input 
+                    id="address"
+                    type="text" 
+                    value={formData.address}
+                    onChange={handleChange} 
+                    placeholder="Enter Address">
+                </input>
+                <select 
+                    id="department"
+                    type="text"
+                    onChange={(e)=>{
+                        handleChange(e)
+                    }}> 
+                    <option>-----</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Management">Management</option>
+                    <option value="Technical">Technical</option>
+                    <option value="HR">HR</option>
+                </select>
+                <input 
+                    id="salary"
+                    type="number" 
+                    value={formData.salary}
+                    onChange={handleChange} 
+                    placeholder="Enter Salary">
+                </input>
 
-            <input 
-                id="martial_status"
-                type="checkbox" 
-                value={formData.married}
-                onChange={handleChange}>
-            </input>
-            <label>Married</label>
+                <input 
+                    id="status"
+                    type="checkbox" 
+                    value="married"
+                    onChange={(e)=>{
+                        handleCheckbox(e)
+                    }}>
+                </input>
+                <label>Married</label>
 
-            <input 
-                id="martial_status"
-                type="checkbox"
-                value={formData.single}
-                onChange={handleChange}>
-            </input>
-            <label>Single</label>
+                <input 
+                    id="status"
+                    type="checkbox"
+                    value="single"
+                    onChange={(e)=>{
+                        handleCheckbox(e)
+                    }}>
+                </input>
+                <label>Single</label>
 
-            <input type="submit" value="Submit data"></input>
-        </form>
+                <input type="submit" value="Submit data"></input>
+            </form>
+            <div>
+                {data.map(employee =>
+                    <div key={employee.id}>
+                        <tr id="employee_list">
+                            <th>{employee.name}</th>
+                            <th>{employee.age}</th>
+                            <th>{employee.salary}</th>
+                            <th>{employee.department}</th>
+                            <th>{employee.status}</th>
+                        </tr>
+                    </div>)}
+            </div>
+                
+        </div>
     )
 }
