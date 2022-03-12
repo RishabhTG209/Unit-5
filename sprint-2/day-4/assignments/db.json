@@ -44,6 +44,15 @@
       "salary": "500000",
       "status": "single",
       "id": 5
+    },
+    {
+      "name": "Naman",
+      "age": "25",
+      "address": "Rajouri",
+      "department": "Technical",
+      "salary": "100000",
+      "status": "single",
+      "id": 6
     }
   ]
 }
