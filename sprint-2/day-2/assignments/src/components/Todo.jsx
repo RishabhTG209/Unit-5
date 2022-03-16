@@ -14,9 +14,10 @@ export function Todo() {
   const getData = async () => {
     try {
       let res = await fetch(
-        `http://localhost:3122/todos?_limit=3&_page=${page}`
+        `http://localhost:3001/todos?_limit=3&_page=${page}`
       );
       let data = await res.json();
+      console.log(data);
       setTodos([...data]);
     } catch (e) {
       console.log("e", e);
@@ -27,7 +28,7 @@ export function Todo() {
     <div>
       <TodoInput getData={getData} />
       {todos.map((e) => (
-        <TodoList todo={e} key={e.id} />
+        <TodoList todo={e} key={e.id} getData={getData} />
       ))}
       <button
         onClick={() => {

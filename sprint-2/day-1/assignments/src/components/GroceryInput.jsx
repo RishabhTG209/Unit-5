@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function GroceryInput({addto}) {
 
-    const [text, setText] = useState()
+    const [text, setText] = useState("")
 
     
 

@@ -1,39 +1,24 @@
 {
   "todos": [
     {
-      "id": "-a_8cWtxZBex6jPR9Bz9V",
-      "title": "Reading",
-      "status": false
-    },
-    {
       "id": "3zEN2lMjzR3b1dUshiAXY",
-      "title": "Current Affairs",
+      "title": "anushka",
+      "status": true
+    },
+    {
+      "id": "0wc3QCmGzh8vJQPLgtkAD",
+      "title": "anushka",
       "status": false
     },
     {
-      "id": "1uGD-Kst5rhkF-D27HUr7",
-      "title": "portfolio",
+      "id": "g6MQPL8V5HDPKHeXiAz7o",
+      "title": "anushka",
       "status": false
     },
     {
-      "id": "FRAPj0p-XE1LAWoFFACn7",
-      "title": "github",
-      "status": false
-    },
-    {
-      "id": "YFhHu2Iu6t8dYJ6l3a3F9",
-      "title": "linkdn",
-      "status": false
-    },
-    {
-      "id": "VOUE3skhxdLxeknCWYKPe",
-      "title": "driving",
-      "status": false
-    },
-    {
-      "id": "6-iI-r_68OLT_wFaWsGlQ",
-      "title": "eating",
-      "status": false
+      "id": "E-_jtWtSVpe9mVgBIdPY-",
+      "title": "anushka",
+      "status": true
     }
   ]
 }

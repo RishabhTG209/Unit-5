@@ -5,6 +5,7 @@ function GroceryList({value,deleteItem}) {
     return (
       <div className="box">
         <div>{value.title}</div>
+        <div>{value.id}</div>
         <button className="size"
         onClick={()=>{
           deleteItem(value.id)

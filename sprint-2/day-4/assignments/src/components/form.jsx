@@ -12,6 +12,8 @@ export const Forms =()=>{
         status:"",
     });
 
+
+    let API = `https://glowing-chip-church.glitch.me/employee`;
     const [data,setData] = useState([])
 
     useEffect(()=>{
@@ -19,7 +21,7 @@ export const Forms =()=>{
     },[])
 
     const getData =()=>{
-        axios.get(`http://localhost:3125/employee`).then(res=>{
+        axios.get(`${API}`).then(res=>{
             setData(res.data);
         })
     }
@@ -49,7 +51,7 @@ export const Forms =()=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(formData)
-        axios.post("http://localhost:3125/employee",formData).then(()=>{
+        axios.post(`${API}`,formData).then(()=>{
             alert("Employee Successfully registered");
             setFormData({
                 name :"",

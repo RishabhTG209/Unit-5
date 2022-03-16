@@ -12,15 +12,20 @@ export function TodoInput({ getData }) {
       />
       <button
         onClick={() => {
-          fetch("http://localhost:3122/todos", {
-            method: "POST",
-            body: JSON.stringify({ id: nanoid(), title: text, status: false }),
-            headers: {
-              "content-type": "application/json",
-            },
-          }).then(() => {
-            getData();
-          });
+          if(text==""){
+            alert("Try again")
+          }
+          else{
+            fetch("http://localhost:3001/todos", {
+              method: "POST",
+              body: JSON.stringify({ id: nanoid(), title: text, status: false }),
+              headers: {
+                "content-type": "application/json",
+              },
+            }).then(() => {
+              getData();
+            });
+          }
         }}
       >
         Add Task
