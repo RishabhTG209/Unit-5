@@ -13,8 +13,7 @@ export const Navbar = ()=>{
                     display: "flex",
                     justifyContent: "space-evenly",
                     gap:"10px",
-                }}
-            >
+                }}>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/users">User List</Link>
