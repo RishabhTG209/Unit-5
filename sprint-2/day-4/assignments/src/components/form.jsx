@@ -21,7 +21,7 @@ export const Forms =()=>{
     },[])
 
     const getData =()=>{
-        axios.get(`${API}`).then(res=>{
+        axios.get(`${API}`).then((res)=>{
             setData(res.data);
         })
     }

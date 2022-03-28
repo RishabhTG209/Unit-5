@@ -11,7 +11,7 @@ function Counter(){
         setCounter(counter * 2)
     }
  
-   const add = (value) => {
+    const add = (value) => {
         setCounter(counter + value)
     }
 
