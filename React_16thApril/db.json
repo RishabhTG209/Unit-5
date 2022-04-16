@@ -5,6 +5,12 @@
       "population": "2000001",
       "country": "America",
       "id": 2
+    },
+    {
+      "city": "Moscow",
+      "population": "150000",
+      "country": "Russia",
+      "id": 3
     }
   ],
   "country": [
@@ -19,6 +25,10 @@
     {
       "name": "South Africa",
       "id": 3
+    },
+    {
+      "name": "Russia",
+      "id": 4
     }
   ]
 }
