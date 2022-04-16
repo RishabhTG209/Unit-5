@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { CityTable } from "../Table/citytable";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [city, setCity] = useState([]);
@@ -41,6 +42,11 @@ export const Home = () => {
     <MainDiv>
       <div className="subDiv">
         <h1>Data</h1>
+        <div>
+          <Link to={`/add-country`}>Add Country</Link>
+          <Link to={`/add-city`}>Add City</Link>
+        </div>
+
         <table>
           <tr>
             <th>id</th>

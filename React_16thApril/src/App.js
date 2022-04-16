@@ -6,6 +6,8 @@ import {AddCity} from "./components/AddCity/addCity"
 import { Navbar } from "./components/Navbar/navbar";
 import {Home} from "./components/Hompage/Homepage"
 import {CityUpdate} from  "./components/update/cityupdate"
+import {CityDelete} from  "./components/Delete/delete"
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
           <Route exact path="/add-country" element={<AddCountry/>}/>
           <Route exact path="/add-city" element={<AddCity/>}/>
           <Route path="/update/:id" element={<CityUpdate />} />
+          <Route path="/delete/:id" element={<CityDelete />} />
       </Routes>
     </div>
   );

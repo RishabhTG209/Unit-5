@@ -13,7 +13,9 @@ export const CityTable = ({ data }) => {
         </button>
       </td>
       <td>
-        <button>Delete</button>
+        <button>
+          <Link to={`/delete/${data.id}`}>Delete</Link>
+        </button>
       </td>
     </tr>
   );
