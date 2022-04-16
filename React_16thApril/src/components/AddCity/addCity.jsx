@@ -23,8 +23,8 @@ export const AddCity=()=>{
     },[])
 
 
-    let APIc = "http://localhost:8080/country";
-    let APIcity = "http://localhost:8080/city";
+    let APIc = "http://localhost:3125/country";
+    let APIcity = "http://localhost:3125/city";
 
     const getCountry=()=>{
         axios.get(`${APIc}`).then((res)=>{
@@ -33,7 +33,7 @@ export const AddCity=()=>{
     }
 
     const getcityData = () => {
-        axios.get(`http://localhost:8080/city/${id}`).then((res) => {
+        axios.get(`http://localhost:3125/city/${id}`).then((res) => {
           console.log(res.data);
           setData({ ...res });
         });

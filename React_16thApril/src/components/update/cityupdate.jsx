@@ -19,14 +19,14 @@ export const CityUpdate = () => {
     }
   }, []);
   const fetchCurrentData = () => {
-    axios.get(`http://localhost:8080/city/${id}`).then((res) => {
+    axios.get(`http://localhost:3125/city/${id}`).then((res) => {
       console.log(res.data);
       setData({ ...res.data });
     });
   };
 
   const getCountries = () => {
-    axios.get(`http://localhost:8080/country`).then((res) => {
+    axios.get(`http://localhost:3125/country`).then((res) => {
       setcity([...res.data]);
     });
   };
@@ -42,7 +42,7 @@ export const CityUpdate = () => {
     e.preventDefault();
 
     axios
-      .patch(`http://localhost:8080/city/${id}`, form)
+      .patch(`http://localhost:3125/city/${id}`, form)
       .then(() => alert(`${form.city} added`))
       .then(() => window.location.reload());
   };
