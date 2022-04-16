@@ -17,31 +17,30 @@ export const Home = () => {
   const MainDiv = styled.div`
     margin: auto;
     text-align: center;
-    border: 1px solid red;
-    width: 80%;
+    width: 90%;
     .subDiv {
-      border: 1px solid black;
-      width: 80%;
+      width: 90%;
       justify-content: center;
       margin: auto;
     }
     table {
-      border: 1px solid black;
+      border: 2px solid black;
       margin: auto;
       /* padding: 10px; */
     }
     th {
-      border: 1px solid black;
+      border: 2px solid black;
       padding: 10px;
+      fontWeight: bold;
     }
     td {
-      border: 1px solid black;
+      border: 2px solid red;
     }
   `;
   return (
     <MainDiv>
       <div className="subDiv">
-        <h2>See and Analyze the data</h2>
+        <h1>Data</h1>
         <table>
           <tr>
             <th>id</th>

@@ -75,12 +75,11 @@ export const CityUpdate = () => {
         >
           <option value="">Select</option>
           {city.map((el) => (
-            <option value={el.country} key={el.id}>
-              {el.country}
+            <option value={el.name} key={el.id}>
+              {el.name}
             </option>
           ))}
         </select>
-
         <input type="submit" value={"Update City"} />
       </form>
     </div>
