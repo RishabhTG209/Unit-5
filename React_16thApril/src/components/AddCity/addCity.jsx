@@ -1,16 +1,28 @@
 import {useEffect,useState} from 'react'
 import axios from 'axios'
+import { useParams } from "react-router-dom";
+
 
 export const AddCity=()=>{
     const [city, setCity] =useState([]);
+
+    const [data, setData] = useState({});
 
     const [form,setForm] = useState({
         city:"",
         population:"",
         country:"",
     })
+    const { id } = useParams();
 
-    useEffect(()=>getCountry(),[])
+    useEffect(()=>{
+        getCountry()
+        if (id) {
+            getcityData();
+        }
+    },[])
+
+
     let APIc = "http://localhost:8080/country";
     let APIcity = "http://localhost:8080/city";
 
@@ -19,6 +31,13 @@ export const AddCity=()=>{
             setCity([...res.data])
         })
     }
+
+    const getcityData = () => {
+        axios.get(`http://localhost:8080/city/${id}`).then((res) => {
+          console.log(res.data);
+          setData({ ...res });
+        });
+    };
 
     const handleChange=(e)=>{
         const {id,value}=e.target;
