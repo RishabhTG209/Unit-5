@@ -4,7 +4,7 @@ import axios from "axios";
 export const AddCountry =()=>{
     const [country,setCountry] = useState("")
 
-    let API = `http://localhost:3125/country`;
+    let API = `http://localhost:8080/country`;
 
     const handleSubmit=(e)=>{
         e.preventDefault();

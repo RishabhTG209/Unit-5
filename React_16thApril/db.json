@@ -1,4 +1,24 @@
 {
-    "city" : [],
-    "country":[]
+  "city": [
+    {
+      "city": "New Delhi",
+      "population": "20000000",
+      "country": "India",
+      "id": 1
+    }
+  ],
+  "country": [
+    {
+      "name": "India",
+      "id": 1
+    },
+    {
+      "name": "America",
+      "id": 2
+    },
+    {
+      "name": "South Africa",
+      "id": 3
+    }
+  ]
 }
