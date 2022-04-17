@@ -1,3 +1,4 @@
+import axios from 'axios'
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
@@ -127,13 +128,13 @@ export const CustomPaginationActionsTable=()=> {
                 {row.flat_no}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.calories}
+                {row.flat_type}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.fat}
+                {row.flat_block}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.fat}
+                {row.flat_residents}
               </TableCell>
             </TableRow>
           ))}

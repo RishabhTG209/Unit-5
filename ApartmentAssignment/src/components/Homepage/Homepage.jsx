@@ -5,10 +5,7 @@ export const Home=()=>{
     return(
         <div>
             <br/>
-            <br/>
             <SortFilter/>
-            <br/>
-            <br/>
             <br/>
             <CustomPaginationActionsTable/>
         </div>
