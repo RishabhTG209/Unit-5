@@ -16,6 +16,9 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import {useDispatch,useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import {get_flats_data} from "../../Redux/allflats/action"
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -78,27 +81,17 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(name, calories, fat) {
-  return { name, calories, fat };
-}
-
-const rows = [
-  createData('Cupcake', 305, 3.7),
-  createData('Donut', 452, 25.0),
-  createData('Eclair', 262, 16.0),
-  createData('Frozen yoghurt', 159, 6.0),
-  createData('Gingerbread', 356, 16.0),
-  createData('Honeycomb', 408, 3.2),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Jelly Bean', 375, 0.0),
-  createData('KitKat', 518, 26.0),
-  createData('Lollipop', 392, 0.2),
-  createData('Marshmallow', 318, 0),
-  createData('Nougat', 360, 19.0),
-  createData('Oreo', 437, 18.0),
-].sort((a, b) => (a.calories < b.calories ? -1 : 1));
 
 export const CustomPaginationActionsTable=()=> {
+    const dispatch = useDispatch();
+    const rows = useSelector((store)=>store.flats.flats)
+    console.log(rows)
+    useEffect(()=>{
+        getFlat();
+    },[])
+    const getFlat=()=>{
+        dispatch(get_flats_data())
+    }
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -134,7 +127,7 @@ export const CustomPaginationActionsTable=()=> {
                 {row.flat_block}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.flat_residents}
+                {row.flat_residents.length}
               </TableCell>
             </TableRow>
           ))}

@@ -14,6 +14,9 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import {useDispatch,useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import {get_login_stat} from "../../Redux/manager/action"
 
 function Copyright(props) {
   return (
@@ -32,6 +35,15 @@ const theme = createTheme();
 
 export const SignIn= () => {
     const navigate= useNavigate();
+    const dispatch = useDispatch();
+    const rows = useSelector((store)=>store.users.login)
+    console.log(rows)
+    useEffect(()=>{
+        getManager();
+    },[])
+    const getManager=()=>{
+      dispatch(get_login_stat())
+    }
     const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -39,13 +51,9 @@ export const SignIn= () => {
         email: data.get('email'),
         password: data.get('password'),  
     }
+    
+    getManager();
 
-    axios.post(`https://afternoon-eyrie-36220.herokuapp.com/login`,temp).then((e)=>{
-        alert("Succefully Login");
-        navigate("/Home");
-    }).catch((e)=>{
-        alert("Invalid Credential. Try Again")
-    })
   };
 
   return (
