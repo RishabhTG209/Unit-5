@@ -11,7 +11,7 @@ export const AllRoutes = ()=>{
             <Navbar/>
             <Routes>
                 <Route path="/Home" element={<Home/>}/>
-                <Route path="/flatdetail" element={<FlatDetails/>}/>
+                <Route path="/flatdetail/:id" element={<FlatDetails/>}/>
                 <Route path="/SignIn" element={<SignIn/>}/>
                 <Route path="/SignUp" element={<SignUp/>}/>
             </Routes>

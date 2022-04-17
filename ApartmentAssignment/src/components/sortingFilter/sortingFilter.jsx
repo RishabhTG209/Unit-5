@@ -4,15 +4,29 @@ import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
+import {useDispatch,useSelector} from 'react-redux';
+import {useEffect} from 'react';
+import {SortingFlats,FilterBlock,FilterType} from "../../Redux/allflats/action"
 
 export const SortFilter=()=> {
+  const dispatch = useDispatch();
+  
+
+  const sortingFlatNo=(value)=>{
+    dispatch(SortingFlats(value))
+  }
+
+  // const filterBlocks=(e)=>{
+  //   dispatch(FilterBlock(e.target.value))
+  // }
+
   return (
     <Box sx={{ '& button': { m: 1 } }}>
       <div>
-        <Button variant="outlined" size="large">
+        <Button variant="outlined" size="large" onClick={()=>sortingFlatNo(1)}>
             Sort Flat Low to High
         </Button>
-        <Button variant="outlined" size="large">
+        <Button variant="outlined" size="large" onClick={()=>sortingFlatNo(2)}>
             Sort Flat High to Low
         </Button>
         <br/>

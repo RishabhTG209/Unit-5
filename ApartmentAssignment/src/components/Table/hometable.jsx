@@ -19,6 +19,7 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import {useDispatch,useSelector} from 'react-redux';
 import {useEffect} from 'react';
 import {get_flats_data} from "../../Redux/allflats/action"
+import {useNavigate} from "react-router-dom"
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -83,6 +84,7 @@ TablePaginationActions.propTypes = {
 
 
 export const CustomPaginationActionsTable=()=> {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const rows = useSelector((store)=>store.flats.flats)
     console.log(rows)
@@ -95,6 +97,9 @@ export const CustomPaginationActionsTable=()=> {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+  const changeFlatPage=(id)=>{
+    navigate(`/flatdetail/${id}`)
+  }
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -116,7 +121,7 @@ export const CustomPaginationActionsTable=()=> {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <TableRow key={row.name}>
+            <TableRow onClick={()=>changeFlatPage(row._id)} key={row.name}>
               <TableCell component="th" scope="row">
                 {row.flat_no}
               </TableCell>
