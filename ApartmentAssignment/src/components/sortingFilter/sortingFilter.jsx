@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
 import {useDispatch,useSelector} from 'react-redux';
-import {useEffect} from 'react';
+import {useEffect,useState} from 'react';
 import {SortingFlats,FilterBlock,FilterType} from "../../Redux/allflats/action"
 
 export const SortFilter=()=> {
@@ -13,12 +13,18 @@ export const SortFilter=()=> {
   
 
   const sortingFlatNo=(value)=>{
+    console.log("Hello hello",value)
     dispatch(SortingFlats(value))
   }
 
-  // const filterBlocks=(e)=>{
-  //   dispatch(FilterBlock(e.target.value))
-  // }
+  const filterBlocks=(e)=>{
+    console.log("Hey",e.target.value)
+    dispatch(FilterBlock(e.target.value))
+  }
+  const filterTypes=(e)=>{
+    console.log("Hey hey",e.target.value)
+    dispatch(FilterType(e.target.value))
+  }
 
   return (
     <Box sx={{ '& button': { m: 1 } }}>
@@ -41,6 +47,9 @@ export const SortFilter=()=> {
                 name: 'age',
                 id: 'uncontrolled-native',
             }}
+            onChange={(e)=>{
+              filterTypes(e)
+            }}
             >
             <option>--</option>
             <option value={"Owner"}>Owner</option>
@@ -59,6 +68,9 @@ export const SortFilter=()=> {
             inputProps={{
                 name: 'age',
                 id: 'uncontrolled-native',
+            }}
+            onChange={(e)=>{
+              filterBlocks(e)
             }}
             >
             <option>--</option>

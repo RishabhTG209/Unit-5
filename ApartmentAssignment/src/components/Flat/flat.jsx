@@ -21,11 +21,27 @@ export const FlatDetails=()=>{
             <p>Flat Number - {array[0].flat_no}</p>
             <p>Flat Type - {array[0].flat_type}</p>
             <p>Flat Block - {array[0].flat_block}</p>
-            {array[0].flat_residents.map((e)=>(
-                <div>
-                    <p>Name: {e.Name} &nbsp; Gender:{e.Gender} &nbsp; Age: {e.Age} </p>
-                </div>
-            ))}
+                <table>
+                    <tr>
+                        <td>Names</td>
+                        <td>Gender</td>
+                        <td>Age</td>
+                    </tr>
+                    {array[0].flat_residents.map((e)=>(
+                    <tr>
+                        <td>{e.Name}</td>
+                        <td>{e.Gender}</td>
+                        <td>{e.Age}</td>
+                    </tr>
+                    ))}
+                </table>
+            
         </div>
     )
 }
+
+
+
+// <div>
+//                     <p>Name: {e.Name} &nbsp; Gender:{e.Gender} &nbsp; Age: {e.Age} </p>
+//                 </div>
