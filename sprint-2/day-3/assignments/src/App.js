@@ -4,10 +4,13 @@ import { Timer } from './components/Timer'
 import { useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [show,setShow] = useState(true)
   return (
     <div className="App">
-        <Timer startTimee={0} endTime={10}/>
+        {show?<Timer startTimee={0} endTime={10}/>:""}
+        <button onClick={()=>setShow(!show)}>{
+          show? "HIDE" : "Show"
+        }</button>
     </div>
   );
 }

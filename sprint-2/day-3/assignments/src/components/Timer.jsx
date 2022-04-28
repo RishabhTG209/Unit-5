@@ -8,6 +8,7 @@ export const Timer = (props)=>{
 
  useEffect(()=>{
    let id =  setInterval(()=>{
+       console.log(count)
         setCount((prev)=>{
             if(prev == endTime){
                 clearInterval(id)
@@ -18,6 +19,7 @@ export const Timer = (props)=>{
     },1000)
     
     return ()=>{
+        clearInterval(id)
         console.log("cleaning function")
     }
  },[])
